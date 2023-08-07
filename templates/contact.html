@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block body %}
+<div class="container-fluid px-0 mb-3">
+    <img src="https://source.unsplash.com/random/1200×400/?phone,contact" class="d-block w-100  mx-0" alt="...">
+</div>
+<div class="container">
+<h1 class="text-center"> Contact us </h1>
+<form method="POST" action="/contact">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" aria-describedby="textname" placeholder="Enter your name" required>
+    <div id="textname" class="form-text">Please type your name here!</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="has-validation">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter Your Email id" required>
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone Number</label>
+    <input type="text" class="form-control" id="phone" name="phone" placeholder="Please fill your number" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="info" class="form-label">Tell us what you want?</label>
+    <input type="text" class="form-control" id="info" aria-describedby="infoHelp" name="info" placeholder="Answer this in detail" required>
+    <div id="infoHelp" class="form-text">Tell us in detail what information do you want from us?</div>
+  </div>
+
+  <div class="mb-3 form-check">
+    <input type="checkbox"  class="form-check-input" name="check" id="check">
+    <label class="form-check-label" for="check">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+{% endblock body %}
+
